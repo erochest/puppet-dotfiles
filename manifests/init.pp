@@ -35,7 +35,13 @@
 #
 # Copyright 2011 Your name here, unless otherwise noted.
 #
-class dotfiles {
+class dotfiles(
+  $user     = 'vagrant',
+  $key_file = nil
+) {
 
+  class { 'dotfiles::install' : } ->
+  class { 'dotfiles::ssh'     : } ->
+  Class['dotfiles']
 
 }
