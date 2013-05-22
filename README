@@ -1,6 +1,7 @@
 dotfiles
 
-This is the dotfiles module.
+This is the dotfiles module. It's based on my personal configuration, although
+I've made small gestures toward generalizing it.
 
 License
 -------
