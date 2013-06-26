@@ -1,6 +1,6 @@
 
 class dotfiles::ssh {
-  $user    = $dotfiles::user
+  $user     = $dotfiles::user
   $key_file = $dotfiles::key_file
 
   file { '.ssh' :

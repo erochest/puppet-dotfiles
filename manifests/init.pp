@@ -36,12 +36,18 @@
 # Copyright 2011 Your name here, unless otherwise noted.
 #
 class dotfiles(
-  $user     = 'vagrant',
-  $key_file = nil
+  $user            = 'vagrant',
+  $key_file        = nil,
+  $dotfiles        = 'git://github.com/erochest/dotfiles.git',
+  $bash_it_plugins = ['base', 'fasd', 'tmux'],
+  $bash_it_aliases = ['bundler', 'general', 'vim']
 ) {
 
   class { 'dotfiles::install' : } ->
   class { 'dotfiles::ssh'     : } ->
+  class { 'dotfiles::dots'    : } ->
+  class { 'dotfiles::bash_it' : } ->
+  class { 'dotfiles::vim'     : } ->
   Class['dotfiles']
 
 }
