@@ -2,9 +2,9 @@
 class dotfiles::vim {
   $user = $dotfiles::user
 
-  file { "/home/$user/.vim/vimrc" :
+  file { "/home/$user/.vimrc" :
     ensure  => link,
-    target  => "/home/$user/.vimrc",
+    target  => "/home/$user/.vim/vimrc",
     owner   => "$user",
   }
 
