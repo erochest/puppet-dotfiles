@@ -22,6 +22,7 @@ class dotfiles::vim {
     user        => "$user",
     path        => ['/bin', '/usr/bin', '/usr/local/bin', "/home/$user/.local/bin"],
     environment => "HOME=/home/$user",
+    timeout     => 900,
     require     => [File["/home/$user/.vimrc"], Exec['git clone vundle']],
   }
 
