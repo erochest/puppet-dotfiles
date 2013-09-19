@@ -24,6 +24,7 @@ class dotfiles::dots {
     user    => "$user",
     creates => "/home/$user/dots/plugins/dotfiles",
     path    => ['/bin', '/usr/bin'],
+    require => File['dots/plugins'],
   }
 
   exec { 'pip install requirements' :
