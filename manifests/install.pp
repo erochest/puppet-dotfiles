@@ -8,5 +8,10 @@ class dotfiles::install {
              ] :
     ensure => installed
   }
+  ->
+  exec { 'pip install autoenv' :
+    path    => ['/usr', '/usr/bin', '/usr/local/bin'],
+    creates => '/usr/local/bin/activate.sh',
+  }
 }
 
