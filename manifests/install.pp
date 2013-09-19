@@ -13,5 +13,12 @@ class dotfiles::install {
     path    => ['/usr', '/usr/bin', '/usr/local/bin'],
     creates => '/usr/local/bin/activate.sh',
   }
+
+  exec { 'ack divert' :
+    command => 'dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep',
+    path    => ['/usr', '/usr/bin', '/usr/local/bin'],
+    creates => '/usr/bin/ack',
+    onlyif  => 'dpkg-divert --help',
+  }
 }
 
